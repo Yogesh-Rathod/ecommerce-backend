@@ -24,10 +24,10 @@ class App {
 
     private async connectToDatabase() {
         const client = new postgres.Client({
-            user: 'postgres',
-            host: 'localhost',
+            user: process.env.POSTGRES_USERNAME,
+            host: process.env.POSTGRES_HOST,
             database: 'ecommerce',
-            password: 'yogeshr',
+            password: process.env.POSTGRES_PASSWORD,
             port: 5432
         });
         await client.connect();

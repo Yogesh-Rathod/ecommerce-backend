@@ -1,14 +1,20 @@
 import * as postgres from 'pg';
 
 const seedData = async _client => {
-    await _client.query('DROP TABLE IF EXISTS users');
-    await _client.query(
-        'CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, email VARCHAR(150) NOT NULL, password VARCHAR(250) NOT NULL)'
-    );
-    await _client.query(
-        `INSERT INTO users(id, email, password) VALUES(1, 'yogesh', 'yrathod101@gmail.com')`
-    );
+    const createTableText = `
+        DROP TABLE IF EXISTS users;
+        CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
+        CREATE TABLE IF NOT EXISTS users (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        data JSONB
+        );
+    `;
+    await _client.query(createTableText);
+    const newUser = { email: 'YRATHOD101@gmail.com', password: 'yogeshr' };
+    await _client.query('INSERT INTO users(data) VALUES($1)', [newUser]);
     const { rows } = await _client.query('SELECT * FROM users');
+    console.log(rows);
 };
 
 export default seedData;
