@@ -7,6 +7,8 @@ import * as compression from 'compression';
 import * as errorhandler from 'errorhandler';
 import * as passport from 'passport';
 import * as expressValidator from 'express-validator';
+import * as postgres from 'pg';
+import seedPostgres from './utils/seed-data';
 
 const app = express();
 
@@ -15,7 +17,24 @@ class App {
 
     constructor() {
         this.app = express();
+
+        this.connectToDatabase();
         this.initializeMiddlewares();
+    }
+
+    private async connectToDatabase() {
+        const client = new postgres.Client({
+            user: 'postgres',
+            host: 'localhost',
+            database: 'ecommerce',
+            password: 'yogeshr',
+            port: 5432
+        });
+        await client.connect();
+        // Seed Postgres with dummy data
+        if (process.env.NODE_ENV === 'development') {
+            seedPostgres(client);
+        }
     }
 
     private initializeMiddlewares() {
