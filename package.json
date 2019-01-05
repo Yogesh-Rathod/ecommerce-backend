@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
         "start": "export NODE_ENV=development && nodemon",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -12,6 +13,7 @@
     "dependencies": {
         "@types/node": "10.12.18",
         "body-parser": "1.18.3",
+        "class-validator": "0.9.1",
         "compression": "1.7.3",
         "dotenv": "6.2.0",
         "envalid": "4.1.4",

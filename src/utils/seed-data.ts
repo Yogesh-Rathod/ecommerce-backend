@@ -14,7 +14,7 @@ const seedData = async _client => {
     const newUser = { email: 'YRATHOD101@gmail.com', password: 'yogeshr' };
     await _client.query('INSERT INTO users(data) VALUES($1)', [newUser]);
     const { rows } = await _client.query('SELECT * FROM users');
-    console.log(rows);
+    console.log('USERS', rows);
 };
 
 export default seedData;
