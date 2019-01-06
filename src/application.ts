@@ -8,6 +8,9 @@ import * as errorhandler from 'errorhandler';
 import * as passport from 'passport';
 import * as expressValidator from 'express-validator';
 import * as postgres from 'pg';
+import Controller from './interfaces/controller.interface';
+
+import dbConfig from './config/config';
 import seedPostgres from './utils/seed-data';
 
 const app = express();
@@ -15,21 +18,16 @@ const app = express();
 class App {
     public app: express.Application;
 
-    constructor() {
+    constructor(controllers: Controller[]) {
         this.app = express();
 
         this.connectToDatabase();
         this.initializeMiddlewares();
+        this.initializeControllers(controllers);
     }
 
     private async connectToDatabase() {
-        const client = new postgres.Client({
-            user: process.env.POSTGRES_USERNAME,
-            host: process.env.POSTGRES_HOST,
-            database: 'ecommerce',
-            password: process.env.POSTGRES_PASSWORD,
-            port: 5432
-        });
+        const client = new postgres.Pool(dbConfig);
         await client.connect();
         // Seed Postgres with dummy data
         if (process.env.NODE_ENV === 'development') {
@@ -63,6 +61,12 @@ class App {
                 res.status(500).send('Server Error');
             });
         }
+    }
+
+    private initializeControllers(controllers: Controller[]) {
+        controllers.forEach(controller => {
+            this.app.use('/', controller.router);
+        });
     }
 
     public listen() {
