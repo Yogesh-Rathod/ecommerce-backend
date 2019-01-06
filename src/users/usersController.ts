@@ -84,8 +84,9 @@ class UserController implements Controller {
                     rows[0].data.password === logInData.password;
                 if (checkPassword) {
                     rows[0].data.password = undefined;
-                    const tokenData = this.createToken(rows[0].data);
-                    res.send(tokenData);
+                    const token = this.createToken(rows[0].data);
+                    res.setHeader('Set-Cookie', [this.createCookie(token)]);
+                    res.send(token);
                 } else {
                     res.send('Login Failed Password Not matching');
                 }
@@ -94,6 +95,12 @@ class UserController implements Controller {
             console.log('error ', error);
         }
     };
+
+    private createCookie(token: TokenInterface) {
+        return `Authorization=${token.token}; HttpOnly; Max-Age=${
+            token.expiresIn
+        }`;
+    }
 
     private createToken(user: UserInterface): TokenInterface {
         const expiresIn = 60 * 60; // 1 hour
