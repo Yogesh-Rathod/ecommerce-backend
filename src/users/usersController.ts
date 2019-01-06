@@ -10,6 +10,7 @@ import UserWithThatEmailAlreadyExistsException from '../middlewares/UserWithThat
 import LogInDto from './logIn.dto';
 import TokenInterface from '../interfaces/tokenData.interface';
 import DataInToken from '../interfaces/dataInToken';
+import WrongCredentialsException from '../exceptions/WrongCredentialsException';
 
 class UserController implements Controller {
     public path = '/users';
@@ -88,11 +89,11 @@ class UserController implements Controller {
                     res.setHeader('Set-Cookie', [this.createCookie(token)]);
                     res.send(token);
                 } else {
-                    res.send('Login Failed Password Not matching');
+                    next(new WrongCredentialsException());
                 }
             }
         } catch (error) {
-            console.log('error ', error);
+            next(new WrongCredentialsException());
         }
     };
 
