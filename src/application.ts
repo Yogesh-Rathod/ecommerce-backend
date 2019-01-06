@@ -7,13 +7,11 @@ import * as compression from 'compression';
 import * as errorhandler from 'errorhandler';
 import * as passport from 'passport';
 import * as expressValidator from 'express-validator';
-import * as postgres from 'pg';
 import * as methodOverride from 'method-override';
 import * as cors from 'cors';
 import * as rateLimit from 'express-rate-limit';
 
 import Controller from './interfaces/controller.interface';
-import dbConfig from './config/config';
 import seedPostgres from './utils/seed-data';
 
 const app = express();
@@ -30,11 +28,9 @@ class App {
     }
 
     private async connectToDatabase() {
-        const client = new postgres.Pool(dbConfig);
-        await client.connect();
         // Seed Postgres with dummy data
         if (process.env.NODE_ENV === 'development') {
-            seedPostgres(client);
+            seedPostgres();
         }
     }
 

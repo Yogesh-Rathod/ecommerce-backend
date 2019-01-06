@@ -26,18 +26,23 @@ class UserController implements Controller {
     }
 
     private getAllUsers = async (
-        req: express.request,
+        req: express.Request,
         res: express.Response
     ) => {
         const { rows } = await this.client.query('SELECT * FROM users');
         res.send(rows);
     };
 
-    private addUser = async (req: express.request, res: express.Response) => {
+    private addUser = async (req: express.Request, res: express.Response) => {
         // console.log('req ');
-        // // const userData: AddUserDTO = request.body;
+        const userData: AddUserDTO = req.body;
+        // try {
+
+        // } catch (error) {
+
+        // }
         // const { rows } = await this.client.query('SELECT * FROM users');
-        res.send('rows');
+        res.send(userData);
     };
 }
 

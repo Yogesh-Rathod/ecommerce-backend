@@ -1,7 +1,7 @@
 import * as postgres from 'pg';
-// import query from '../utils/database';
+import query from '../utils/database';
 
-const seedData = async _client => {
+const seedData = async () => {
     const createTableText = `
         DROP TABLE IF EXISTS users;
         CREATE EXTENSION IF NOT EXISTS "pgcrypto";
@@ -10,10 +10,10 @@ const seedData = async _client => {
             data JSONB
             );
         `;
-    await _client.query(createTableText);
+    await query(createTableText);
     const newUser = { email: 'YRATHOD101@gmail.com', password: 'yogeshr' };
-    await _client.query('INSERT INTO users(data) VALUES($1)', [newUser]);
-    const { rows } = await _client.query('SELECT * FROM users');
+    await query('INSERT INTO users(data) VALUES($1)', [newUser]);
+    const { rows } = await query('SELECT * FROM users');
     console.log('USERS', rows);
 };
 
