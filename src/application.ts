@@ -9,6 +9,8 @@ import * as passport from 'passport';
 import * as expressValidator from 'express-validator';
 import * as postgres from 'pg';
 import * as methodOverride from 'method-override';
+import * as cors from 'cors';
+import * as rateLimit from 'express-rate-limit';
 
 import Controller from './interfaces/controller.interface';
 import dbConfig from './config/config';
@@ -37,6 +39,16 @@ class App {
     }
 
     private initializeMiddlewares() {
+        const corsOptions = {
+            origin: ['http://localhost:3000'],
+            optionsSuccessStatus: 200
+        };
+        this.app.use(cors(corsOptions));
+        const limiter = rateLimit({
+            windowMs: 15 * 60 * 1000,
+            max: 100
+        });
+        app.use(limiter);
         this.app.use(bodyParser.json());
         this.app.use(
             bodyParser.urlencoded({
@@ -47,12 +59,14 @@ class App {
         this.app.use(morgan('dev'));
         this.app.use(
             expressSession({
+                name: 'SESS_ID',
                 resave: true,
                 saveUninitialized: true,
                 secret: process.env.SESSION_SECRET,
                 cookie: { secure: true, maxAge: 1209600000 }
             })
         );
+        this.app.disable('x-powered-by');
         this.app.use(helmet());
         this.app.use(compression());
         this.app.use(passport.initialize());
