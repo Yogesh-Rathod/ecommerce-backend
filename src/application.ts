@@ -13,6 +13,7 @@ import * as rateLimit from 'express-rate-limit';
 
 import Controller from './interfaces/controller.interface';
 import seedPostgres from './utils/seed-data';
+import errorMiddleware from './middlewares/error.middleware';
 
 const app = express();
 
@@ -25,6 +26,7 @@ class App {
         this.connectToDatabase();
         this.initializeMiddlewares();
         this.initializeControllers(controllers);
+        this.initializeErrorHandling();
     }
 
     private async connectToDatabase() {
@@ -78,6 +80,10 @@ class App {
                 res.status(500).send('Server Error');
             });
         }
+    }
+
+    private initializeErrorHandling() {
+        this.app.use(errorMiddleware);
     }
 
     private initializeControllers(controllers: Controller[]) {
