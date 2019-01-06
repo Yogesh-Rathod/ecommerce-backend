@@ -1,4 +1,4 @@
-import * as express from 'express';
+import * as exp from 'express';
 import * as expressSession from 'express-session';
 import * as bodyParser from 'body-parser';
 import * as helmet from 'helmet';
@@ -15,13 +15,13 @@ import Controller from './interfaces/controller.interface';
 import seedPostgres from './utils/seed-data';
 import errorMiddleware from './middlewares/error.middleware';
 
-const app = express();
+const app = exp();
 
 class App {
-    public app: express.Application;
+    public app: exp.Application;
 
     constructor(controllers: Controller[]) {
-        this.app = express();
+        this.app = exp();
 
         this.connectToDatabase();
         this.initializeMiddlewares();

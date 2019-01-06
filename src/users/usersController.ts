@@ -1,4 +1,4 @@
-import * as express from 'express';
+import * as exp from 'express';
 import * as jwt from 'jsonwebtoken';
 
 import Controller from '../interfaces/controller.interface';
@@ -15,7 +15,7 @@ import authMiddleware from '../middlewares/auth.middleware';
 
 class UserController implements Controller {
     public path = '/users';
-    public router = express.Router();
+    public router = exp.Router();
 
     constructor() {
         this.initializeRoutes();
@@ -41,18 +41,15 @@ class UserController implements Controller {
         this.router.post(`${this.path}/logout`, this.logOut);
     }
 
-    private getAllUsers = async (
-        req: express.Request,
-        res: express.Response
-    ) => {
+    private getAllUsers = async (req: exp.Request, res: exp.Response) => {
         const { rows } = await query('SELECT * FROM users');
         return res.send(rows);
     };
 
     private addUser = async (
-        req: express.Request,
-        res: express.Response,
-        next: express.NextFunction
+        req: exp.Request,
+        res: exp.Response,
+        next: exp.NextFunction
     ) => {
         try {
             const userData: AddUserDTO = req.body;
@@ -78,9 +75,9 @@ class UserController implements Controller {
     };
 
     private logIn = async (
-        req: express.Request,
-        res: express.Response,
-        next: express.NextFunction
+        req: exp.Request,
+        res: exp.Response,
+        next: exp.NextFunction
     ) => {
         try {
             const logInData: LogInDto = req.body;
@@ -104,7 +101,7 @@ class UserController implements Controller {
         }
     };
 
-    private logOut = (req: express.Request, res: express.Response) => {
+    private logOut = (req: exp.Request, res: exp.Response) => {
         res.setHeader('Set-Cookie', ['Authorization=;Max-age=0']);
         res.status(200).send({ message: 'Logout Successful' });
     };
