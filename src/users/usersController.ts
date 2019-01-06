@@ -8,6 +8,8 @@ import query from '../utils/database';
 import validationMiddleware from '../middlewares/validation.middleware';
 import UserWithThatEmailAlreadyExistsException from '../middlewares/UserWithThatEmailAlreadyExistsException';
 import LogInDto from './logIn.dto';
+import TokenInterface from '../interfaces/tokenData.interface';
+import DataInToken from '../interfaces/dataInToken';
 
 class UserController implements Controller {
     public path = '/users';
@@ -77,12 +79,13 @@ class UserController implements Controller {
             const queryString = `SELECT * from users WHERE data->>'email'=$1 FETCH FIRST ROW ONLY`,
                 values = [req.body.email];
             const { rows } = await query(queryString, values);
-            console.log('rows ', rows);
             if (rows && rows.length) {
                 const checkPassword =
                     rows[0].data.password === logInData.password;
                 if (checkPassword) {
-                    res.send('Login Successfull');
+                    rows[0].data.password = undefined;
+                    const tokenData = this.createToken(rows[0].data);
+                    res.send(tokenData);
                 } else {
                     res.send('Login Failed Password Not matching');
                 }
@@ -91,6 +94,18 @@ class UserController implements Controller {
             console.log('error ', error);
         }
     };
+
+    private createToken(user: UserInterface): TokenInterface {
+        const expiresIn = 60 * 60; // 1 hour
+        const secret = process.env.JWT_SECRET;
+        const dataStoredInToken: DataInToken = {
+            id: user.id
+        };
+        return {
+            expiresIn,
+            token: jwt.sign(dataStoredInToken, secret, { expiresIn })
+        };
+    }
 }
 
 export default UserController;
