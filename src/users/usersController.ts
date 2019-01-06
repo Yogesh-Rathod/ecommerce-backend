@@ -1,4 +1,5 @@
 import * as express from 'express';
+import * as jwt from 'jsonwebtoken';
 
 import Controller from '../interfaces/controller.interface';
 import AddUserDTO from './users.dto';
@@ -6,6 +7,7 @@ import UserInterface from './usersInterface';
 import query from '../utils/database';
 import validationMiddleware from '../middlewares/validation.middleware';
 import UserWithThatEmailAlreadyExistsException from '../middlewares/UserWithThatEmailAlreadyExistsException';
+import LogInDto from './logIn.dto';
 
 class UserController implements Controller {
     public path = '/users';
@@ -21,6 +23,11 @@ class UserController implements Controller {
             `${this.path}/`,
             validationMiddleware(AddUserDTO),
             this.addUser
+        );
+        this.router.post(
+            `${this.path}/login`,
+            validationMiddleware(LogInDto),
+            this.logIn
         );
     }
 
@@ -57,6 +64,31 @@ class UserController implements Controller {
         } catch (error) {
             console.log('error ', error);
             res.status(400).send(error);
+        }
+    };
+
+    private logIn = async (
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction
+    ) => {
+        try {
+            const logInData: LogInDto = req.body;
+            const queryString = `SELECT * from users WHERE data->>'email'=$1 FETCH FIRST ROW ONLY`,
+                values = [req.body.email];
+            const { rows } = await query(queryString, values);
+            console.log('rows ', rows);
+            if (rows && rows.length) {
+                const checkPassword =
+                    rows[0].data.password === logInData.password;
+                if (checkPassword) {
+                    res.send('Login Successfull');
+                } else {
+                    res.send('Login Failed Password Not matching');
+                }
+            }
+        } catch (error) {
+            console.log('error ', error);
         }
     };
 }
