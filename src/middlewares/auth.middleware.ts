@@ -5,12 +5,8 @@ import JWTMissingException from '../exceptions/JWTMissingException';
 import WrongJWTException from '../exceptions/WrongJWTException';
 import query from '../utils/database';
 
-async function authMiddleware(
-    request: Request,
-    response: Response,
-    next: NextFunction
-) {
-    const headers: any = request.headers;
+async function authMiddleware(req: Request, res: Response, next: NextFunction) {
+    const headers: any = req.headers;
     if (headers && headers.authorization) {
         const secret = process.env.JWT_SECRET;
         try {
@@ -22,7 +18,7 @@ async function authMiddleware(
                 values = [verificationResponse.id];
             const { rows } = await query(queryString, values);
             if (rows && rows.length) {
-                request['user'] = rows[0];
+                req['user'] = rows[0];
                 next();
             } else {
                 next(new WrongJWTException());
