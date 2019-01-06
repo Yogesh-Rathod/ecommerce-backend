@@ -95,6 +95,8 @@ class UserController implements Controller {
                 } else {
                     next(new WrongCredentialsException());
                 }
+            } else {
+                next(new WrongCredentialsException());
             }
         } catch (error) {
             next(new WrongCredentialsException());
