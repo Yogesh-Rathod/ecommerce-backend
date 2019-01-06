@@ -12,7 +12,7 @@ import * as cors from 'cors';
 import * as rateLimit from 'express-rate-limit';
 
 import Controller from './interfaces/controller.interface';
-import seedPostgres from './utils/seed-data';
+import seedPostgres from './utils/seed-user-data';
 import errorMiddleware from './middlewares/error.middleware';
 
 const app = exp();

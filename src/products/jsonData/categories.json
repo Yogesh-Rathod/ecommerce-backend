@@ -1,0 +1,35 @@
+{
+    "categories": [
+        "Computers \u0026 Laptops",
+        "Cameras \u0026 Photos",
+        "Hardware",
+        "Smartphones \u0026 Tablets",
+        "TV \u0026 Audio",
+        "Gadgets",
+        "Car Electronics",
+        "Video Games \u0026 Consoles",
+        "Accessories"
+    ],
+    "menus": [
+        {
+            "name": "Super Deals",
+            "sub": ["Menu Item 1", "Menu Item 2", "Menu Item 3"]
+        },
+        {
+            "name": "Featured Brands",
+            "sub": []
+        },
+        {
+            "name": "Pages",
+            "sub": ["Shop", "Product", "Blog", "Blog Post", "Contact"]
+        },
+        {
+            "name": "Blog",
+            "sub": []
+        },
+        {
+            "name": "Contact",
+            "sub": []
+        }
+    ]
+}

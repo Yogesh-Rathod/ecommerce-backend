@@ -1,5 +1,5 @@
 import * as postgres from 'pg';
-import query from '../utils/database';
+import query from './database';
 
 const seedData = async () => {
     const createTableText = `

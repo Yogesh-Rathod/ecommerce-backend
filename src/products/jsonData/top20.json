@@ -1,0 +1,170 @@
+{
+    "top": [
+        {
+            "id": 451,
+            "name": "Xiaomi Redmi Note 4",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 20000,
+            "discount": "20%",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/51Dx9aXS7qL._SY300_QL70_.jpg"
+        },
+        {
+            "id": 452,
+            "name": "Samsung J730F",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 1000,
+            "discount": "1%",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDXz1dP3dcHPx1llZKd5IMoUkR1pP_ewzc-mFosYEFSRuRRW44Q"
+        },
+        {
+            "id": 453,
+            "name": "Jabra Move Wireless Headphones",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 2000,
+            "discount": "11%",
+            "image": "https://target.scene7.com/is/image/Target/GUEST_0da89755-db4d-42f9-aa72-3334f0bc085b?wid=488\u0026hei=488\u0026fmt=pjpeg"
+        },
+        {
+            "id": 454,
+            "name": "JLab JBuddies Studio Wired",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 100,
+            "discount": "0",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyfD0DAhEI6QqAh_tC31JLPDyqplTt3tdZwVeEdvLpfKU_IgFEhg"
+        },
+        {
+            "id": 455,
+            "name": "Beats Solo3 Wireless",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 300,
+            "discount": "70%",
+            "image": "http://cdn.shopify.com/s/files/1/0362/2465/products/sr60e_alt_600x.jpeg?v=1484331907"
+        },
+        {
+            "id": 456,
+            "name": "Xiaomi Redmi Note 4",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 20000,
+            "discount": "20%",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/51Dx9aXS7qL._SY300_QL70_.jpg"
+        }
+    ],
+    "audioVideo": [
+        {
+            "id": 457,
+            "name": "Xiaomi",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 20000,
+            "discount": "20%",
+            "image": "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/v3/tablets/mediapad-m5-8/m5-8-listimage-grey.png"
+        },
+        {
+            "id": 458,
+            "name": "Samsung",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 1000,
+            "discount": "1%",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCQcvoSW4369hJZWpeQJ1JVVcuaiLFQ0pabjSfPiYJcyTQrM79"
+        },
+        {
+            "id": 459,
+            "name": "Jabra",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 2000,
+            "discount": "11%",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM3tSsHT8UcV7Q3Tyf8xUYZZop7lTP2SGhns9rkoffXPm6O2ZhEA"
+        },
+        {
+            "id": 460,
+            "name": "JLab",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 100,
+            "discount": "0",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/41mW8qOHcQL._AC._SR360,460.jpg"
+        },
+        {
+            "id": 461,
+            "name": "Beats ",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 300,
+            "discount": "70%",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ0J-JWyZ03GroB3Zr99T90Bkx7Yq9UF6Q1TWKPK_cGxtQxbs-"
+        },
+        {
+            "id": 462,
+            "name": "Note 4",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 20000,
+            "discount": "20%",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW3XiEaVBerHgPsV9Qs5Db-RuTJDAKbcXwvdKLu8KUlliC61Rv"
+        }
+    ],
+    "laptops": [
+        {
+            "id": 463,
+            "name": "HP® Laptop - 15t touch",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 20000,
+            "discount": "20%",
+            "image": "https://cdn.vox-cdn.com/thumbor/PUswy3EF3nojtrMhUWeYabQEi9A=/0x0:2039x1359/1200x800/filters:focal(0x0:2039x1359)/cdn.vox-cdn.com/uploads/chorus_image/image/52590407/jkastrenakes_161222_1339_A_0018__1_.0.0.jpeg"
+        },
+        {
+            "id": 464,
+            "name": "Samsung",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 1000,
+            "discount": "1%",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG3wUzPeegQligFNAPpt87dWx_Kzh4QDVNyX8Neou69y8XQ5Vm"
+        },
+        {
+            "id": 465,
+            "name": "Jabra",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 2000,
+            "discount": "11%",
+            "image": "https://officedepot.scene7.com/is/image/officedepot/6979764_p_hp_pavilion_x360_15_cr0052od_convertible_laptop?$OD%2DSearch$"
+        },
+        {
+            "id": 466,
+            "name": "JLab JBuddies",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 100,
+            "discount": "0",
+            "image": "https://img.newatlas.com/asus-chromebook-c523-5.png?auto=format%2Ccompress\u0026ch=Width%2CDPR\u0026fit=crop\u0026h=347\u0026q=60\u0026rect=0%2C262%2C1080%2C608\u0026w=616\u0026s=67b70a9bc2b71a91211aaee63aa4257f"
+        },
+        {
+            "id": 467,
+            "name": "Apple",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 300,
+            "discount": "70%",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Py684STzwErPleJeJa58e66Hd6WQ4U1fT8LJOK7RtQwTyqX5yw"
+        },
+        {
+            "id": 468,
+            "name": "Xiaomi",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, suscipit maiores inventore eos dolore illum quae iure molestiae facilis? Numquam non nam repellat quasi repellendus adipisci accusantium inventore eos enim!",
+            "category": "Headphones",
+            "price": 20000,
+            "discount": "20%",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG3wUzPeegQligFNAPpt87dWx_Kzh4QDVNyX8Neou69y8XQ5Vm"
+        }
+    ]
+}

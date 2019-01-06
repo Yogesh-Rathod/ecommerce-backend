@@ -1,0 +1,42 @@
+[
+    {
+        "id": 123,
+        "name": "Beoplay H7",
+        "price": "549",
+        "description": "boAt BassHeads 220 Polished Metal Earphones are designed to give you an Experience which no other brand can match. It has an incredible sonic clarity with Super Extra Bass. It is not a plastic earphone - It is Polished Metal. With tangle free flat cables, you are expected to be hassle free. As the headphones feature 10mm drivers, they give you clear sound with that Thumping Bass.With Colours that match your style in your day, the boAt earphones are the ideal choice for anyone who can carry that attitude. Just Plug Them in and Plug into Nirvana!",
+        "discount": "25%",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/81TzTAx8weL.jpg"
+    },
+    {
+        "id": 124,
+        "name": "Huawei MediaPad",
+        "price": "333",
+        "description": "Work in style or be entertained with crisp and vivid visuals on the Honor MediaPad T3 tablet. With an expandable storage capacity of up to 128 GB, you can store your favorite files in one place. What’s more? You can send pictures to your loved ones while chatting with them, thanks to the presence of the 5 MP Primary camera and the 2 MP Front camera. This tab runs on the Android 7.0 Nougat Operating System.",
+        "discount": "0",
+        "image": "https://consumer-img.huawei.com/content/dam/huawei-cbg-site/en/mkt/pdp/tablets/mediapad-m3-8/img/1-header-front.png"
+    },
+    {
+        "id": 125,
+        "name": "Sony PS4 Slim",
+        "price": "26400",
+        "description": "Warranty of the Product is Limited to Manufacturing Defects Only",
+        "discount": "10%",
+        "image": "https://media.playstation.com/is/image/SCEA/playstation-accessories-ps4-slim-two-column-02-us-07feb17?$facebook$"
+    },
+    {
+        "id": 126,
+        "name": "Speedlink",
+        "price": "2000",
+        "description": "PS2 Platform, Corded Interface, Force-feedback Feature, 4-way D-pad Feature, Reduce Reaction Time, 2 Shoulder Buttons and Triggers, Analog Mini-sticks, Reduces Fatigue",
+        "discount": "0%",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/61D506mGqWL._SX425_.jpg"
+    },
+    {
+        "id": 127,
+        "name": "Philips Dura Power",
+        "price": "1281",
+        "description": "Compact in design and convenient to use, this Philips Trimmer is a grooming appliance every modern man needs in his vanity kit. Equipped with the DuraPower Technology, this trimmer optimizes power consumption to make the trimmer last six times longer than conventional ones. The self-sharpening blades in this trimmer brush lightly against each other while you trim, so they remain sharp even after regular use.",
+        "discount": "30%",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/51pmCUuLGoL._SX425_.jpg"
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "id": 701,
+        "title": "NEW ERA OF SMARTPHONES",
+        "name": "Apple Iphone 6s",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione fugiat illum repellendus cumque quo, sint at? Voluptatibus atque numquam quas delectus accusantium alias nam. Recusandae est quasi saepe doloremque ullam?",
+        "oldPrice": "530",
+        "price": "460",
+        "image": "https://consumer-img.huawei.com/content/dam/huawei-cbg-site/en/mkt/pdp/tablets/mediapad-m3-8/img/1-header-front.png"
+    },
+    {
+        "id": 702,
+        "title": "REACT IS AWESOME",
+        "name": "Sony PS4 Slim",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione fugiat illum repellendus cumque quo, sint at? Voluptatibus atque numquam quas delectus accusantium alias nam. Recusandae est quasi saepe doloremque ullam?",
+        "oldPrice": "20000",
+        "price": "15000",
+        "image": "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/v3/tablets/mediapad-m5-8/m5-8-listimage-grey.png"
+    }
+]
