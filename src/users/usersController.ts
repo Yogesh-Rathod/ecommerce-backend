@@ -40,10 +40,9 @@ class UserController implements Controller {
         try {
             const userData: AddUserDTO = req.body;
             // Check if email available
-            const queryString = `SELECT * from users WHERE data->>'email'=$1`,
+            const queryString = `SELECT * from users WHERE data->>'email'=$1 FETCH FIRST ROW ONLY`,
                 values = [req.body.email];
             const { rows } = await query(queryString, values);
-            console.log('rows ', rows);
             if (rows && rows.length) {
                 next(
                     new UserWithThatEmailAlreadyExistsException(userData.email)
