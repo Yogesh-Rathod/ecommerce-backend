@@ -6,11 +6,12 @@ import AddUserDTO from './users.dto';
 import UserInterface from './usersInterface';
 import query from '../utils/database';
 import validationMiddleware from '../middlewares/validation.middleware';
-import UserWithThatEmailAlreadyExistsException from '../middlewares/UserWithThatEmailAlreadyExistsException';
+import UserWithThatEmailAlreadyExistsException from '../exceptions/UserWithThatEmailAlreadyExistsException';
 import LogInDto from './logIn.dto';
 import TokenInterface from '../interfaces/tokenData.interface';
 import DataInToken from '../interfaces/dataInToken';
 import WrongCredentialsException from '../exceptions/WrongCredentialsException';
+import authMiddleware from '../middlewares/auth.middleware';
 
 class UserController implements Controller {
     public path = '/users';
@@ -21,7 +22,12 @@ class UserController implements Controller {
     }
 
     private initializeRoutes() {
-        this.router.get(`${this.path}/getAllUsers`, this.getAllUsers);
+        // this.router.get(`${this.path}/getAllUsers`, this.getAllUsers);
+        this.router.get(
+            `${this.path}/getAllUsers`,
+            authMiddleware,
+            this.getAllUsers
+        );
         this.router.post(
             `${this.path}/`,
             validationMiddleware(AddUserDTO),
@@ -32,6 +38,7 @@ class UserController implements Controller {
             validationMiddleware(LogInDto),
             this.logIn
         );
+        this.router.post(`${this.path}/logout`, this.logOut);
     }
 
     private getAllUsers = async (
@@ -85,7 +92,7 @@ class UserController implements Controller {
                     rows[0].data.password === logInData.password;
                 if (checkPassword) {
                     rows[0].data.password = undefined;
-                    const token = this.createToken(rows[0].data);
+                    const token = this.createToken(rows[0]);
                     res.setHeader('Set-Cookie', [this.createCookie(token)]);
                     res.send(token);
                 } else {
@@ -95,6 +102,11 @@ class UserController implements Controller {
         } catch (error) {
             next(new WrongCredentialsException());
         }
+    };
+
+    private logOut = (req: express.Request, res: express.Response) => {
+        res.setHeader('Set-Cookie', ['Authorization=;Max-age=0']);
+        res.status(200).send({ message: 'Logout Successful' });
     };
 
     private createCookie(token: TokenInterface) {

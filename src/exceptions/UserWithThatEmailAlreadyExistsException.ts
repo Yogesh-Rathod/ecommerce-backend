@@ -1,4 +1,4 @@
-import HttpException from '../exceptions/HttpException';
+import HttpException from './HttpException';
 
 class UserWithThatEmailAlreadyExistsException extends HttpException {
     constructor(email: string) {
