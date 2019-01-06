@@ -8,8 +8,9 @@ import * as errorhandler from 'errorhandler';
 import * as passport from 'passport';
 import * as expressValidator from 'express-validator';
 import * as postgres from 'pg';
-import Controller from './interfaces/controller.interface';
+import * as methodOverride from 'method-override';
 
+import Controller from './interfaces/controller.interface';
 import dbConfig from './config/config';
 import seedPostgres from './utils/seed-data';
 
@@ -36,8 +37,15 @@ class App {
     }
 
     private initializeMiddlewares() {
-        app.use(bodyParser.json());
-        app.use(
+        this.app.use(bodyParser.json());
+        this.app.use(
+            bodyParser.urlencoded({
+                extended: true
+            })
+        );
+        this.app.use(methodOverride());
+        this.app.use(morgan('dev'));
+        this.app.use(
             expressSession({
                 resave: true,
                 saveUninitialized: true,
@@ -45,18 +53,17 @@ class App {
                 cookie: { secure: true, maxAge: 1209600000 }
             })
         );
-        app.use(helmet());
-        app.use(morgan('dev'));
-        app.use(compression());
-        app.use(passport.initialize());
-        app.use(passport.session());
-        app.use(expressValidator());
+        this.app.use(helmet());
+        this.app.use(compression());
+        this.app.use(passport.initialize());
+        this.app.use(passport.session());
+        this.app.use(expressValidator());
 
         if (process.env.NODE_ENV === 'development') {
             // only use in development
-            app.use(errorhandler());
+            this.app.use(errorhandler());
         } else {
-            app.use((err, req, res, next) => {
+            this.app.use((err, req, res, next) => {
                 console.error(err);
                 res.status(500).send('Server Error');
             });
