@@ -7,12 +7,13 @@ const seedData = async () => {
         CREATE EXTENSION IF NOT EXISTS "pgcrypto";
         CREATE TABLE IF NOT EXISTS users (
             id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-            data JSONB
+            userinfo JSONB,
+            cartinfo JSONB
             );
         `;
     await query(createTableText);
     const newUser = { email: 'YRATHOD101@gmail.com', password: 'yogeshr' };
-    await query('INSERT INTO users(data) VALUES($1)', [newUser]);
+    await query('INSERT INTO users(userinfo) VALUES($1)', [newUser]);
     const { rows } = await query('SELECT * FROM users');
     console.log('USERS', rows);
 };
