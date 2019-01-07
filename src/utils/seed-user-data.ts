@@ -13,7 +13,10 @@ const seedData = async () => {
         `;
     await query(createTableText);
     const newUser = { email: 'YRATHOD101@gmail.com', password: 'yogeshr' };
-    await query('INSERT INTO users(userinfo) VALUES($1)', [newUser]);
+    await query('INSERT INTO users(userinfo, cartinfo) VALUES($1, $2)', [
+        newUser,
+        { cartItems: {} }
+    ]);
     const { rows } = await query('SELECT * FROM users');
     console.log('USERS', rows);
 };
