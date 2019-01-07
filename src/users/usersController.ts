@@ -54,7 +54,7 @@ class UserController implements Controller {
         try {
             const userData: AddUserDTO = req.body;
             // Check if email available
-            const queryString = `SELECT * from users WHERE userinfo->>'email'=$1 FETCH FIRST ROW ONLY`,
+            const queryString = `SELECT * from users WHERE lower(userinfo->>'email')=lower($1) FETCH FIRST ROW ONLY`,
                 values = [req.body.email];
             const { rows } = await query(queryString, values);
             if (rows && rows.length) {
@@ -81,7 +81,7 @@ class UserController implements Controller {
     ) => {
         try {
             const logInData: LogInDto = req.body;
-            const queryString = `SELECT * from users WHERE userinfo->>'email'=$1 FETCH FIRST ROW ONLY`,
+            const queryString = `SELECT * from users WHERE lower(userinfo->>'email')=lower($1) FETCH FIRST ROW ONLY`,
                 values = [req.body.email];
             const { rows } = await query(queryString, values);
             if (rows && rows.length) {
