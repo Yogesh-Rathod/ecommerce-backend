@@ -54,7 +54,7 @@ class UserController implements Controller {
         try {
             const userData: AddUserDTO = req.body;
             // Check if email available
-            const queryString = `SELECT * from users WHERE lower(userinfo->>'email')=lower($1) FETCH FIRST ROW ONLY`,
+            const queryString = `SELECT * from users WHERE lower(email)=lower($1) FETCH FIRST ROW ONLY`,
                 values = [req.body.email];
             const { rows } = await query(queryString, values);
             if (rows && rows.length) {
@@ -63,8 +63,8 @@ class UserController implements Controller {
                 );
             } else {
                 const queryString =
-                    'INSERT INTO users(userinfo) VALUES($1) RETURNING *';
-                const values = [userData];
+                    'INSERT INTO users(email, password) VALUES($1, $2) RETURNING *';
+                const values = [userData.email, userData.password];
                 const { rows } = await query(queryString, values);
                 res.status(200).send(rows);
             }
@@ -81,14 +81,13 @@ class UserController implements Controller {
     ) => {
         try {
             const logInData: LogInDto = req.body;
-            const queryString = `SELECT * from users WHERE lower(userinfo->>'email')=lower($1) FETCH FIRST ROW ONLY`,
+            const queryString = `SELECT * from users WHERE lower(email)=lower($1) FETCH FIRST ROW ONLY`,
                 values = [req.body.email];
             const { rows } = await query(queryString, values);
             if (rows && rows.length) {
-                const checkPassword =
-                    rows[0].userinfo.password === logInData.password;
+                const checkPassword = rows[0].password === logInData.password;
                 if (checkPassword) {
-                    rows[0].userinfo.password = undefined;
+                    rows[0].password = undefined;
                     const token = this.createToken(rows[0]);
                     res.setHeader('Set-Cookie', [this.createCookie(token)]);
                     res.send(token);
