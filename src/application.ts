@@ -42,11 +42,11 @@ class App {
             optionsSuccessStatus: 200
         };
         this.app.use(cors(corsOptions));
-        const limiter = rateLimit({
+        const limiter = new rateLimit({
             windowMs: 15 * 60 * 1000,
             max: 100
         });
-        app.use(limiter);
+        this.app.use(limiter);
         this.app.use(bodyParser.json());
         this.app.use(
             bodyParser.urlencoded({

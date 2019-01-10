@@ -1,4 +1,3 @@
-import * as postgres from 'pg';
 import query from './database';
 
 const seedData = async () => {
